@@ -37,7 +37,7 @@ export default function Header({
                 </svg>
               </div>
               <span className="text-2xl font-bold text-dark dark:text-white font-outfit">
-                Base
+                FeCare
               </span>
             </a>
           </div>
