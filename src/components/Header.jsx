@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 export default function Header({
-  darkMode,
-  setDarkMode,
   navigationOpen,
   setNavigationOpen,
 }) {
@@ -81,14 +79,6 @@ export default function Header({
 
           {/* Right Side */}
           <div className="hidden lg:flex items-center gap-4">
-            
-            {/* Dark Mode Toggle */}
-            <button
-              onClick={() => setDarkMode(!darkMode)}
-              className="w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-            >
-              {darkMode ? "🌞" : "🌙"}
-            </button>
 
             {/* Sign In */}
             <a
@@ -165,8 +155,6 @@ export default function Header({
 }
 
 Header.propTypes = {
-  darkMode: PropTypes.bool.isRequired,
-  setDarkMode: PropTypes.func.isRequired,
   navigationOpen: PropTypes.bool.isRequired,
   setNavigationOpen: PropTypes.func.isRequired,
 };
