@@ -5,12 +5,12 @@ import SmallFeatures from "./components/SmallFeatures";
 import About from "./components/About";
 import Team from "./components/Team";
 import Services from "./components/Services";
-import Pricing from "./components/Pricing";
-import Projects from "./components/Projects";
-import Testimonials from "./components/Testimonials";
+// import Pricing from "./components/Pricing";
+// import Projects from "./components/Projects";
+// import Testimonials from "./components/Testimonials";
 import Counter from "./components/Counter";
 import Clients from "./components/Clients";
-import CTA from "./components/CTA";
+// import CTA from "./components/CTA";
 import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
@@ -69,12 +69,12 @@ function App() {
         <About />
         <Team />
         <Services />
-        <Pricing />
-        <Projects />
-        <Testimonials />
+        {/* <Pricing /> */}
+        {/* <Projects /> */}
+        {/* <Testimonials /> */}
         <Counter />
         <Clients />
-        <CTA />
+        {/* <CTA /> */}
         <FAQ />
       </main>
 
