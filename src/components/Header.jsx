@@ -33,21 +33,19 @@ export default function Header({
         <div className="flex items-center justify-between py-5">
           
           {/* Logo */}
-          <a href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="white"
-              >
-                <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" />
-              </svg>
+          <a href="/" className="flex items-center gap-3">
+            <div className="w-20 h-20 flex items-center justify-center">
+              <img
+                src="/images/Logo.png"
+                alt="FeCare Logo"
+                className="w-full h-full object-contain"
+              />
             </div>
-            <span className="text-2xl font-bold text-gray-900 dark:text-white">
-              FeCare
-            </span>
           </a>
+            {/* <span className="text-3xl font-bold text-gray-900 dark:text-white">
+              FeCare
+            </span> */}
+
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
