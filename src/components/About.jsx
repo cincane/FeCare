@@ -138,7 +138,7 @@ export default function About() {
   const totalDays = new Set(log.map((e) => e.date)).size;
 
   return (
-    <section className="py-16 lg:py-24 bg-gray-50 dark:bg-gray-900/50">
+    <section id="pencatatan" className="py-16 lg:py-24 bg-gray-50 dark:bg-gray-900/50">
       <div className="container mx-auto px-4 lg:px-8 xl:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           
@@ -147,19 +147,19 @@ export default function About() {
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
                 <img
-                  src="/images/about-01.png"
+                  src="/images/SF5.png"
                   alt="About"
                   className="rounded-lg shadow-lg w-full"
                 />
                 <img
-                  src="/images/about-02.png"
+                  src="/images/SF2.png"
                   alt="About"
                   className="rounded-lg shadow-lg w-full"
                 />
               </div>
               <div className="space-y-4 pt-8">
                 <img
-                  src="/images/about-03.png"
+                  src="/images/SF3.png"
                   alt="About"
                   className="rounded-lg shadow-lg w-full"
                 />
@@ -175,7 +175,7 @@ export default function About() {
                 Pencatatan Harian
               </h4>
               <h2 className="text-3xl lg:text-4xl font-bold text-dark dark:text-white mb-4">
-                Catat Konsumsi Tablet Fe-mu 📋
+                Catat Konsumsi Tablet Fe-mu
               </h2>
               <p className="text-body dark:text-gray-300 leading-relaxed">
                 Pantau konsumsi tablet zat besi harianmu. Aktifkan pengingat, 
@@ -188,7 +188,7 @@ export default function About() {
               <div className="bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 rounded-xl border border-orange-200 dark:border-orange-800 p-5 text-center">
                 <Flame className="w-8 h-8 text-orange-500 mx-auto mb-2" />
                 <div className="text-3xl font-bold text-dark dark:text-white">{streak}</div>
-                <div className="text-sm text-body dark:text-gray-400">Hari Streak 🔥</div>
+                <div className="text-sm text-body dark:text-gray-400">Hari Streak   </div>
               </div>
               <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 rounded-xl border border-blue-200 dark:border-blue-800 p-5 text-center">
                 <CalendarDays className="w-8 h-8 text-blue-500 mx-auto mb-2" />

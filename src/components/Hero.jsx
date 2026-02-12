@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
+    <section id="home" className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
       {/* Background Decorations */}
       <div className="absolute top-0 right-0 -z-10 w-full h-full">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] lg:w-[1000px] lg:h-[800px] bg-pink-400 opacity-90 translate-x-1/3 -translate-y-1/4"

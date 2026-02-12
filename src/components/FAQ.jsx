@@ -1,56 +1,99 @@
+import { useState } from "react";
+import { Plus, Minus } from "lucide-react";
+
 export default function FAQ() {
+  const [openIndex, setOpenIndex] = useState(null);
+
   const faqs = [
     {
-      question: "What is Base?",
+      question: "Apa itu anemia pada remaja putri?",
       answer:
-        "Base is a modern healthcare template built with React and Tailwind CSS.",
+        "Anemia adalah kondisi ketika kadar hemoglobin (Hb) dalam darah lebih rendah dari normal. Pada remaja putri, anemia sering terjadi karena menstruasi dan kurangnya asupan zat besi.",
     },
     {
-      question: "How do I get started?",
+      question: "Kenapa remaja putri rentan mengalami anemia?",
       answer:
-        "Simply download the template and follow the installation instructions.",
+        "Karena kehilangan darah saat menstruasi setiap bulan, masa pertumbuhan yang cepat, serta pola makan yang kurang mengandung zat besi dan protein.",
     },
     {
-      question: "Do you offer support?",
-      answer: "Yes, we provide 24/7 customer support for all our users.",
+      question: "Berapa kali konsumsi Tablet Tambah Darah (TTD)?",
+      answer:
+        "Remaja putri dianjurkan mengonsumsi 1 tablet TTD setiap minggu untuk mencegah anemia dan menjaga cadangan zat besi.",
+    },
+    {
+      question: "Apa itu Kurang Energi Kronis (KEK)?",
+      answer:
+        "KEK adalah kondisi kekurangan energi dan zat gizi dalam waktu lama. Pada remaja putri dapat diukur melalui Lingkar Lengan Atas (LILA) kurang dari 23,5 cm.",
+    },
+    {
+      question: "Bagaimana cara mencegah anemia?",
+      answer:
+        "Dengan konsumsi TTD secara rutin, makan makanan bergizi seimbang, cukup protein dan zat besi, serta menjaga pola hidup sehat.",
     },
   ];
 
+  const toggle = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
-    <section className="py-16 lg:py-24">
+    <section
+      className="relative py-16 lg:py-24 
+      bg-gradient-to-br from-pink-50 via-rose-50 to-purple-50 
+      dark:from-gray-900 dark:via-gray-900 dark:to-gray-950"
+    >
       <div className="container mx-auto px-4 lg:px-8 xl:px-16">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-dark dark:text-white mb-4">
-            Frequently Asked Questions
+        
+        {/* Title */}
+        <div className="text-center mb-14">
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-4">
+             Pertanyaan Seputar Anemia & Kesehatan Remaja
           </h2>
+          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            Berikut beberapa pertanyaan yang sering ditanyakan mengenai anemia, 
+            Tablet Tambah Darah, dan gizi remaja putri.
+          </p>
         </div>
 
-        <div className="max-w-3xl mx-auto space-y-4">
+        {/* FAQ List */}
+        <div className="max-w-3xl mx-auto space-y-5">
           {faqs.map((faq, index) => (
-            <details
+            <div
               key={index}
-              className="group bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden"
+              className={`rounded-2xl border transition-all duration-300 backdrop-blur-md
+              ${
+                openIndex === index
+                  ? "bg-white/80 dark:bg-gray-800/80 shadow-xl border-pink-300 dark:border-pink-700"
+                  : "bg-white/60 dark:bg-gray-800/60 border-gray-200 dark:border-gray-700"
+              }`}
             >
-              <summary className="flex justify-between items-center cursor-pointer p-6 font-semibold text-dark dark:text-white hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
-                {faq.question}
-                <svg
-                  className="w-5 h-5 transition-transform group-open:rotate-180"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </summary>
-              <div className="px-6 pb-6 text-body dark:text-gray-300">
-                {faq.answer}
+              <button
+                onClick={() => toggle(index)}
+                className="w-full flex justify-between items-center p-6 text-left"
+              >
+                <span className="font-semibold text-gray-800 dark:text-white text-lg">
+                  {faq.question}
+                </span>
+
+                {openIndex === index ? (
+                  <Minus className="w-5 h-5 text-pink-600" />
+                ) : (
+                  <Plus className="w-5 h-5 text-gray-500" />
+                )}
+              </button>
+
+              <div
+                className={`px-6 overflow-hidden transition-all duration-300 ${
+                  openIndex === index
+                    ? "max-h-40 pb-6 opacity-100"
+                    : "max-h-0 opacity-0"
+                }`}
+              >
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                  {faq.answer}
+                </p>
               </div>
-            </details>
+            </div>
           ))}
         </div>
       </div>

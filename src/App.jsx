@@ -65,16 +65,12 @@ function App() {
 
       <main>
         <Hero />
+        <Services />
         <SmallFeatures />
         <About />
         <Team />
-        <Services />
-        {/* <Pricing /> */}
-        {/* <Projects /> */}
-        {/* <Testimonials /> */}
         <Counter />
         <Clients />
-        {/* <CTA /> */}
         <FAQ />
       </main>
 
