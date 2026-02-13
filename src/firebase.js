@@ -1,7 +1,7 @@
 // src/firebase.js
 import { initializeApp } from "firebase/app";
 import { getMessaging, getToken, onMessage, deleteToken } from "firebase/messaging";
-import { onMessage } from "firebase/messaging";
+// import { onMessage } from "firebase/messaging";
 
 
 const firebaseConfig = {
@@ -139,19 +139,19 @@ export const showForegroundNotification = (payload) => {
 };
 
 
-onMessage(messaging, (payload) => {
-  console.log("📨 Foreground message:", payload);
+// onMessage(messaging, (payload) => {
+//   console.log("📨 Foreground message:", payload);
 
-  const title = payload.data?.title;
-  const body = payload.data?.body;
+//   const title = payload.data?.title;
+//   const body = payload.data?.body;
 
-  if (Notification.permission === "granted") {
-    new Notification(title, {
-      body: body,
-      icon: "/icons/icon-192x192.png"
-    });
-  }
-});
+//   if (Notification.permission === "granted") {
+//     new Notification(title, {
+//       body: body,
+//       icon: "/icons/icon-192x192.png"
+//     });
+//   }
+// });
 
 
 export { messaging };

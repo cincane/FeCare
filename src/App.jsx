@@ -47,7 +47,6 @@ function App() {
             </RequireNoAuth>
           }
         />
-
         {/* Protected Routes */}
         <Route
           path="/"

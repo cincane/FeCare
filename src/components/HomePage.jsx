@@ -21,7 +21,6 @@ const HomePage = () => {
         <Team />
         <Services />
         <Counter />
-        <Clients />
         <FAQ />
       </main>
       <Footer />

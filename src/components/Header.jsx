@@ -2,15 +2,11 @@ import { useEffect, useState, useRef } from "react";
 import PropTypes from "prop-types";
 import { Link, useNavigate } from "react-router-dom";
 
-export default function Header({
-  navigationOpen,
-  setNavigationOpen,
-}) {
+export default function Header({ navigationOpen, setNavigationOpen }) {
   const [stickyMenu, setStickyMenu] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [email, setEmail] = useState("");
   const [dropdownOpen, setDropdownOpen] = useState(false);
-
   const navigate = useNavigate();
   const dropdownRef = useRef(null);
 
@@ -30,6 +26,7 @@ export default function Header({
   /* =========================
      STICKY HEADER
   ========================= */
+
   useEffect(() => {
     const handleScroll = () => {
       setStickyMenu(window.scrollY > 20);
@@ -38,7 +35,6 @@ export default function Header({
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
   /* =========================
      CLOSE DROPDOWN IF CLICK OUTSIDE
   ========================= */
@@ -78,161 +74,166 @@ export default function Header({
   };
 
   return (
-    <header
-      className={`fixed left-0 top-0 z-50 w-full transition-all duration-300 ${
-        stickyMenu
-          ? "bg-white shadow-md backdrop-blur-md"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="container mx-auto px-4 lg:px-8 xl:px-16 2xl:px-24">
-        <div className="flex items-center justify-between py-5">
+<>
+  <header
+    className={`fixed left-0 top-0 z-50 w-full transition-all duration-300 ${
+      stickyMenu
+        ? "bg-white/90 backdrop-blur-md shadow-md dark:bg-gray-900/90"
+        : "bg-transparent"
+    }`}
+  >
+    <div className="container mx-auto px-4 lg:px-8 xl:px-16 2xl:px-24">
+      <div className="flex items-center justify-between py-4">
 
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-                <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" />
-              </svg>
-            </div>
-            <span className="text-2xl font-bold text-gray-900">
-              FeCare
-            </span>
-          </Link>
+        {/* Logo */}
+        <Link to="/" className="flex items-center gap-3">
+          <img
+            src="/images/Logo.png"
+            alt="FeCare Logo"
+            className="h-16 w-auto object-contain drop-shadow-lg"
+          />
+        </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
-            <Link
-              to="/"
-              className="text-gray-800 hover:text-primary transition-colors"
-            >
-              Home
-            </Link>
-            <a
-              href="#edukasi"
-              className="text-gray-600 hover:text-primary transition-colors"
-            >
-              Edukasi
-            </a>
-            <a
-              href="#pencatatan"
-              className="text-gray-600 hover:text-primary transition-colors"
-            >
-              Pencatatan
-            </a>
-            <a
-              href="#video-edukasi"
-              className="text-gray-600 hover:text-primary transition-colors"
-            >
-              Video Edukasi
-            </a>
-          </nav>
+        {/* Desktop Navigation */}
+        <nav className="hidden lg:flex items-center gap-8 font-medium">
+          <a href="#home" className="hover:text-pink-600 transition">
+            Home
+          </a>
+          <a href="#edukasi" className="hover:text-pink-600 transition">
+            Edukasi
+          </a>
+          <a href="#pencatatan" className="hover:text-pink-600 transition">
+            Pencatatan
+          </a>
+          <a href="#video-edukasi" className="hover:text-pink-600 transition">
+            Video Edukasi
+          </a>
+        </nav>
 
-          {/* RIGHT SIDE DESKTOP */}
-          <div className="hidden lg:flex items-center gap-4 relative">
+        {/* Desktop Right Side */}
+        <div className="hidden lg:flex items-center gap-4 relative">
 
-            {!isLoggedIn ? (
-              <>
-                <Link
-                  to="/signin"
-                  className="px-6 py-2 text-gray-800 hover:text-primary transition-colors"
-                >
-                  Sign In
-                </Link>
-                <Link
-                  to="/signup"
-                  className="px-6 py-2 bg-primary text-white rounded-full hover:bg-primary/90 transition-all"
-                >
-                  Sign Up
-                </Link>
-              </>
-            ) : (
-              <div className="relative" ref={dropdownRef}>
-                <button
-                  onClick={() => setDropdownOpen(!dropdownOpen)}
-                  className="px-4 py-2 bg-gray-100 rounded-full hover:bg-gray-200 transition"
-                >
-                  {email}
-                </button>
+          {!isLoggedIn ? (
+            <>
+              <Link
+                to="/signin"
+                className="px-5 py-2 border border-pink-500 text-pink-600 rounded-full hover:bg-pink-500 hover:text-white transition"
+              >
+                Sign In
+              </Link>
 
-                {dropdownOpen && (
-                  <div className="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg border">
-                    <button
-                      onClick={handleLogout}
-                      className="w-full text-left px-4 py-2 hover:bg-red-100 text-red-600 rounded-lg"
-                    >
-                      Logout
-                    </button>
-                  </div>
-                )}
-              </div>
-            )}
-          </div>
+              <Link
+                to="/signup"
+                className="px-5 py-2 bg-gradient-to-r from-pink-500 to-rose-500 text-white rounded-full hover:opacity-90 transition shadow-lg"
+              >
+                Sign Up
+              </Link>
+            </>
+          ) : (
+            <div className="relative" ref={dropdownRef}>
+              <button
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                className="px-4 py-2 bg-pink-100 text-pink-700 rounded-full hover:bg-pink-200 transition"
+              >
+                {email}
+              </button>
 
-          {/* Mobile Button */}
-          <button
-            onClick={() => setNavigationOpen(!navigationOpen)}
-            className="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5"
-          >
-            <span
-              className={`w-6 h-0.5 bg-gray-900 transition-all ${
-                navigationOpen ? "rotate-45 translate-y-2" : ""
-              }`}
-            ></span>
-            <span
-              className={`w-6 h-0.5 bg-gray-900 transition-all ${
-                navigationOpen ? "opacity-0" : ""
-              }`}
-            ></span>
-            <span
-              className={`w-6 h-0.5 bg-gray-900 transition-all ${
-                navigationOpen ? "-rotate-45 -translate-y-2" : ""
-              }`}
-            ></span>
-          </button>
-        </div>
-
-        {/* MOBILE MENU */}
-        <div
-          className={`lg:hidden overflow-hidden transition-all duration-300 ${
-            navigationOpen ? "max-h-[500px] pb-6" : "max-h-0"
-          }`}
-        >
-          <nav className="flex flex-col gap-4 pt-4">
-            <Link to="/" className="py-2 border-b">Home</Link>
-            <a href="#edukasi" className="py-2 border-b">Edukasi</a>
-            <a href="#pencatatan" className="py-2 border-b">Pencatatan</a>
-            <a href="#video-edukasi" className="py-2 border-b">Video Edukasi</a>
-
-            <div className="flex flex-col gap-3 pt-4">
-              {!isLoggedIn ? (
-                <>
-                  <Link
-                    to="/signin"
-                    className="px-6 py-3 text-center border rounded-lg"
+              {dropdownOpen && (
+                <div className="absolute right-0 mt-2 w-44 bg-white dark:bg-gray-800 shadow-lg rounded-xl border p-2">
+                  <button
+                    onClick={handleLogout}
+                    className="w-full text-left px-4 py-2 hover:bg-red-100 text-red-600 rounded-lg"
                   >
-                    Sign In
-                  </Link>
-                  <Link
-                    to="/signup"
-                    className="px-6 py-3 text-center bg-primary text-white rounded-lg"
-                  >
-                    Sign Up
-                  </Link>
-                </>
-              ) : (
-                <button
-                  onClick={handleLogout}
-                  className="px-6 py-3 text-center bg-red-500 text-white rounded-lg"
-                >
-                  Logout
-                </button>
+                    Logout
+                  </button>
+                </div>
               )}
             </div>
-          </nav>
+          )}
         </div>
+
+        {/* Mobile Button */}
+        <button
+          onClick={() => setNavigationOpen(!navigationOpen)}
+          className="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5"
+        >
+          <span
+            className={`w-6 h-0.5 bg-gray-900 dark:bg-white transition-all ${
+              navigationOpen ? "rotate-45 translate-y-2" : ""
+            }`}
+          ></span>
+          <span
+            className={`w-6 h-0.5 bg-gray-900 dark:bg-white transition-all ${
+              navigationOpen ? "opacity-0" : ""
+            }`}
+          ></span>
+          <span
+            className={`w-6 h-0.5 bg-gray-900 dark:bg-white transition-all ${
+              navigationOpen ? "-rotate-45 -translate-y-2" : ""
+            }`}
+          ></span>
+        </button>
       </div>
-    </header>
+    </div>
+  </header>
+
+  {/* Overlay */}
+  {navigationOpen && (
+    <div
+      onClick={() => setNavigationOpen(false)}
+      className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 lg:hidden"
+    ></div>
+  )}
+
+  {/* Mobile Slide Menu */}
+  <div
+    className={`fixed top-0 right-0 h-full w-72 bg-white dark:bg-gray-900 shadow-2xl transform transition-transform duration-300 z-50 lg:hidden ${
+      navigationOpen ? "translate-x-0" : "translate-x-full"
+    }`}
+  >
+    <div className="p-6 space-y-6">
+      <a href="#home" className="block" onClick={() => setNavigationOpen(false)}>
+        Home
+      </a>
+      <a href="#edukasi" className="block" onClick={() => setNavigationOpen(false)}>
+        Edukasi
+      </a>
+      <a href="#pencatatan" className="block" onClick={() => setNavigationOpen(false)}>
+        Pencatatan
+      </a>
+      <a href="#video-edukasi" className="block" onClick={() => setNavigationOpen(false)}>
+        Video Edukasi
+      </a>
+
+      <div className="pt-6 space-y-3">
+        {!isLoggedIn ? (
+          <>
+            <Link
+              to="/signin"
+              className="block w-full text-center border border-pink-500 text-pink-600 py-2 rounded-full"
+            >
+              Sign In
+            </Link>
+
+            <Link
+              to="/signup"
+              className="block w-full text-center bg-gradient-to-r from-pink-500 to-rose-500 text-white py-2 rounded-full"
+            >
+              Sign Up
+            </Link>
+          </>
+        ) : (
+          <button
+            onClick={handleLogout}
+            className="block w-full text-center bg-red-500 text-white py-2 rounded-full"
+          >
+            Logout
+          </button>
+        )}
+      </div>
+    </div>
+  </div>
+</>
   );
 }
 
