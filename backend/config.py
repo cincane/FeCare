@@ -5,7 +5,7 @@ class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'super-secret-key-change-this-please-make-it-at-least-32-chars-long'
     
     # Database - PAKAI pymysql!
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'mysql+pymysql://root:@localhost/fecare'
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'mysql+pymysql://fecare_user:password@localhost/fecare'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     
     # JWT Settings
