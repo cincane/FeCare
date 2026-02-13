@@ -1,37 +1,47 @@
 /** @type {import('tailwindcss').Config} */
-export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-  darkMode: "class",
+module.exports = {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
         primary: {
-          DEFAULT: "#5454D4",
-          50: "#F0F0FD",
-          100: "#DCDCFA",
-          200: "#B8B8F5",
-          300: "#9595F0",
-          400: "#7474EB",
-          500: "#5454D4",
-          600: "#3636B8",
-          700: "#2A2A8A",
-          800: "#1D1D5C",
-          900: "#11112E",
+          DEFAULT: '#FF6B6B',
+          50: '#FFF5F5',
+          100: '#FFE3E3',
+          200: '#FFC9C9',
+          300: '#FFA8A8',
+          400: '#FF8787',
+          500: '#FF6B6B',
+          600: '#FA5252',
+          700: '#F03E3E',
+          800: '#E03131',
+          900: '#C92A2A',
         },
-        dark: "#1C1C28",
-        body: "#637381",
+        secondary: {
+          DEFAULT: '#4ECDC4',
+          50: '#F3FCFB',
+          100: '#E6F7F5',
+          200: '#C0EFEA',
+          300: '#9AE7DF',
+          400: '#74DFD4',
+          500: '#4ECDC4',
+          600: '#3BA89F',
+          700: '#2C827B',
+          800: '#1E5C57',
+          900: '#0F3633',
+        },
+        dark: '#1A1E2C',
+        body: '#4A5568',
       },
-      fontFamily: {
-        inter: ["Inter", "sans-serif"],
-        outfit: ["Outfit", "sans-serif"],
-      },
-      fontSize: {
-        hero: ["3.5rem", { lineHeight: "1.2", fontWeight: "700" }],
-      },
-      borderRadius: {
-        blob: "30% 70% 70% 30% / 30% 30% 70% 70%",
+      animation: {
+        'pulse': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'pulse-delay': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite 1s',
       },
     },
   },
   plugins: [],
-};
+}
