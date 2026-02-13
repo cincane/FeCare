@@ -6,6 +6,7 @@ import {
   LinkIcon,
   BeakerIcon,
   FireIcon,
+  LightBulbIcon,
 } from "@heroicons/react/24/outline";
 
 export default function Services() {
@@ -120,6 +121,25 @@ Sumber zat besi:
 • Nabati: bayam, kangkung, tempe, kacang-kacangan
       `,
     },
+    {
+      icon: LightBulbIcon,
+      color:
+        "bg-yellow-100 text-yellow-600 dark:bg-yellow-900/30 dark:text-yellow-400",
+      title: "Mitos & Fakta tentang TTD",
+      description: `
+❌ Mitos: TTD bikin gemuk  
+✅ Fakta: TTD tidak menyebabkan kenaikan berat badan.
+
+❌ Mitos: TTD hanya untuk ibu hamil  
+✅ Fakta: Remaja putri juga membutuhkan TTD.
+
+❌ Mitos: Kalau tidak pusing berarti tidak anemia  
+✅ Fakta: Anemia bisa tanpa gejala jelas.
+
+❌ Mitos: Feses hitam itu berbahaya  
+✅ Fakta: Itu efek normal dari zat besi.
+      `,
+    },
   ];
 
   return (
@@ -127,19 +147,18 @@ Sumber zat besi:
       id="edukasi"
       className="py-16 lg:py-24 bg-gray-50 dark:bg-gray-900"
     >
-      {/* Section Title */}
       <div className="container mx-auto px-4 lg:px-8 xl:px-16 text-center mb-16">
         <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-4">
           Edukasi Kesehatan Remaja Putri
         </h2>
         <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-          Informasi penting mengenai anemia, KEK, dan gizi seimbang untuk remaja putri.
+          Informasi penting mengenai anemia, KEK, dan gizi seimbang untuk
+          remaja putri.
         </p>
       </div>
 
-      {/* Cards */}
       <div className="container mx-auto px-4 lg:px-8 xl:px-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
           {services.map((service, index) => {
             const Icon = service.icon;
 
@@ -153,7 +172,6 @@ Sumber zat besi:
                     : "bg-white dark:bg-gray-800 hover:shadow-xl"
                 }`}
               >
-                {/* Header */}
                 <div
                   className="flex items-center justify-between"
                   onClick={() => toggle(index)}
@@ -181,11 +199,11 @@ Sumber zat besi:
                   </span>
                 </div>
 
-                {/* Dropdown */}
+                
                 <div
                   className={`overflow-hidden transition-all duration-500 ${
                     openIndex === index
-                      ? "max-h-96 mt-4 opacity-100"
+                      ? "max-h-[1000px] mt-4 opacity-100"
                       : "max-h-0 opacity-0"
                   }`}
                 >
