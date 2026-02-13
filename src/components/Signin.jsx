@@ -48,12 +48,12 @@ const Signin = () => {
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         {/* Logo */}
         <Link to="/" className="flex justify-center items-center gap-2 group mb-8">
-          <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-teal-500 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all transform group-hover:scale-110">
+          {/* <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-teal-500 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all transform group-hover:scale-110">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
               <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" />
             </svg>
-          </div>
-          <span className="text-3xl font-bold bg-gradient-to-r from-red-500 to-teal-500 bg-clip-text text-transparent">
+          </div> */}
+          <span className="text-3xl font-bold bg-pink-400 bg-clip-text text-transparent">
             FeCare
           </span>
         </Link>
@@ -62,7 +62,7 @@ const Signin = () => {
         <div className="bg-white py-8 px-4 shadow-xl rounded-lg sm:px-10 border border-gray-100">
           <div className="text-center mb-8">
             <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-2">
-              Welcome Back! 👋
+              Welcome Back!
             </h2>
             <p className="text-gray-600">
               Sign in to continue your journey with FeCare
@@ -132,7 +132,7 @@ const Signin = () => {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full bg-gradient-to-r from-red-500 to-teal-500 text-white py-3 px-4 rounded-lg font-medium hover:from-red-600 hover:to-teal-600 transition-all duration-200 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+              className="w-full bg-pink-400 text-white py-3 rounded-lg font-semibold hover:bg-pink-600 transition-all shadow-lg hover:shadow-xl flex items-center justify-center"
             >
               {isLoading ? (
                 <div className="flex items-center justify-center gap-2">
@@ -147,7 +147,7 @@ const Signin = () => {
             {/* Sign Up Link */}
             <p className="text-center text-gray-600">
               Don't have an account?{" "}
-              <Link to="/signup" className="text-red-500 hover:text-red-600 font-semibold hover:underline">
+              <Link to="/signup" className="text-pink-400 hover:text-pink-600 font-semibold hover:underline">
                 Sign Up
               </Link>
             </p>

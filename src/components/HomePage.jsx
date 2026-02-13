@@ -1,3 +1,4 @@
+import { useState } from "react"; // Tambah ini
 import Header from "./Header";
 import Footer from "./Footer";
 import ScrollToTop from "./ScrollToTop";
@@ -11,9 +12,15 @@ import Clients from "./Clients";
 import FAQ from "./FAQ";
 
 const HomePage = () => {
+  // Tambah state untuk mengontrol mobile menu
+  const [navigationOpen, setNavigationOpen] = useState(false);
+
   return (
     <>
-      <Header /> {/* Jangan kirim props */}
+      <Header 
+        navigationOpen={navigationOpen}
+        setNavigationOpen={setNavigationOpen}
+      />
       <main>
         <Hero />
         <SmallFeatures />

@@ -38,7 +38,7 @@ export default function VideoEdukasi() {
       {/* Section Title */}
       <div className="container mx-auto px-4 lg:px-8 xl:px-16 text-center mb-16">
         <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-4">
-          🎥 Video Edukasi Kesehatan Remaja Putri
+          Video Edukasi Kesehatan Remaja Putri
         </h2>
         <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
           Tonton video edukasi menarik tentang anemia, Tablet Tambah Darah,
